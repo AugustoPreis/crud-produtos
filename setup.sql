@@ -1,0 +1,80 @@
+--Criação das tabelas do banco
+CREATE TABLE categoria (
+	id serial NOT NULL PRIMARY KEY,
+	descricao varchar(100) NOT NULL,
+	observacao varchar(350),
+	data_cadastro timestamp NOT NULL DEFAULT current_timestamp
+);
+
+CREATE TABLE produto (
+	id serial NOT NULL PRIMARY KEY,
+	descricao varchar(250) NOT NULL,
+	preco numeric(10, 2) NOT NULL,
+	categoria int NOT NULL REFERENCES categoria,
+	data_cadastro timestamp NOT NULL DEFAULT current_timestamp
+);
+
+--Insert de dados (opcional)
+INSERT INTO categoria VALUES
+	(DEFAULT, 'Eletrônicos', 'smartphones, laptops, tablets, câmeras, televisões.', '2022-09-01'),
+	(DEFAULT, 'Vestuário', 'camisas, calças, vestidos, sapatos, acessórios.', '2022-09-01'),
+	(DEFAULT, 'Alimentos e Bebidas', 'frutas, vegetais, carnes, laticínios, bebidas.', '2023-03-03'),
+	(DEFAULT, 'Produtos de Beleza e Cuidados Pessoais', 'maquiagem, cremes, xampus, perfumes, escovas.', '2023-06-01'),
+	(DEFAULT, 'Livros e Mídia', 'romances, manuais, revistas, CDs, DVDs.', '2023-11-19'),
+	(DEFAULT, 'Móveis', 'sofás, mesas, cadeiras, camas, estantes.', '2024-01-17'),
+	(DEFAULT, 'Brinquedos e Jogos', 'jogos de tabuleiro, bonecas, quebra-cabeças, brinquedos educativos, videogames.', '2024-03-05'),
+	(DEFAULT, 'Ferramentas e Equipamentos', 'furadeiras, martelos, chaves de fenda, serras, alicates.', '2024-05-05'),
+	(DEFAULT, 'Produtos de Limpeza', 'detergentes, desinfetantes, esponjas, panos, aspiradores de pó.', '2024-06-10'),
+	(DEFAULT, 'Esportes e Lazer', 'bicicletas, roupas de ginástica, equipamentos de camping, bolas, raquetes.', '2024-06-10');
+  
+INSERT INTO produto VALUES
+	(DEFAULT, 'Celular', 4500, 1, '2023-09-01'),
+	(DEFAULT, 'Televisão', 3000, 1, '2023-09-01'),
+	(DEFAULT, 'Computador', 5500, 1, '2023-09-01'),
+	(DEFAULT, 'Tablet', 1500, 1, '2023-09-01'),
+	(DEFAULT, 'Notebook', 3500, 1, '2023-09-01'),
+	(DEFAULT, 'Camisa', 100, 2, '2023-10-01'),
+	(DEFAULT, 'Calça', 180, 2, '2023-10-01'),
+	(DEFAULT, 'Moletom', 150, 2, '2023-10-01'),
+	(DEFAULT, 'Touca', 70, 2, '2023-10-01'),
+	(DEFAULT, 'Boné', 100, 2, '2023-10-01'),
+	(DEFAULT, 'Pepsi', 3, 3, '2023-11-01'),
+	(DEFAULT, 'Heineiken', 7, 3, '2023-11-01'),
+	(DEFAULT, 'Pizza', 80, 3, '2023-11-01'),
+	(DEFAULT, 'Churrasco', 50, 3, '2023-11-01'),
+	(DEFAULT, 'Café', 8, 3, '2023-11-01'),
+	(DEFAULT, 'Shampoo', 16, 4, '2023-12-01'),
+	(DEFAULT, 'Sabonete', 5, 4, '2023-12-01'),
+	(DEFAULT, 'Creme Facial', 27, 4, '2023-12-01'),
+	(DEFAULT, 'Protetor Solar', 16, 4, '2023-12-01'),
+	(DEFAULT, 'Repelente', 9, 4, '2023-12-01'),
+	(DEFAULT, 'Livro', 40, 5, '2024-01-01'),
+	(DEFAULT, 'CD', 10, 5, '2024-01-01'),
+	(DEFAULT, 'DVD', 10, 5, '2024-01-01'),
+	(DEFAULT, 'Filme', 15, 5, '2024-01-01'),
+	(DEFAULT, 'Revista', 5, 5, '2024-01-01'),
+	(DEFAULT, 'Sofá', 2500, 6, '2024-02-01'),
+	(DEFAULT, 'Mesa', 750, 6, '2024-02-01'),
+	(DEFAULT, 'Cama', 1500, 6, '2024-02-01'),
+	(DEFAULT, 'Cadeira', 50, 6, '2024-02-01'),
+	(DEFAULT, 'Poltrona', 400, 6, '2024-02-01'),
+	(DEFAULT, 'Jogo de Tabuleiro', 80, 7, '2024-03-01'),
+	(DEFAULT, 'Jogo de PC', 160, 7, '2024-03-01'),
+	(DEFAULT, 'Jogo de Celular', 5, 7, '2024-03-01'),
+	(DEFAULT, 'Jogo de Tabuleiro 2', 50, 7, '2024-03-01'),
+	(DEFAULT, 'Jogo de Celular 2', 12, 7, '2024-03-01'),
+	(DEFAULT, 'Martelo', 30, 8, '2024-04-01'),
+	(DEFAULT, 'Pá', 45, 8, '2024-04-01'),
+	(DEFAULT, 'Machado', 50, 8, '2024-04-01'),
+	(DEFAULT, 'Foice', 40, 8, '2024-04-01'),
+	(DEFAULT, 'Enxada', 25, 8, '2024-04-01'),
+	(DEFAULT, 'Amaciante', 15.99, 9, '2024-05-01'),
+	(DEFAULT, 'Cloro', 10.50, 9, '2024-05-01'),
+	(DEFAULT, 'Vassoura', 15, 9, '2024-05-01'),
+	(DEFAULT, 'Rodo', 15, 9, '2024-05-01'),
+	(DEFAULT, 'Balde', 20, 9, '2024-05-01'),
+	(DEFAULT, 'Bola de Futebol', 100, 10, '2024-06-01'),
+	(DEFAULT, 'Skate', 150, 10, '2024-06-01'),
+	(DEFAULT, 'Taco de Beisebol', 50, 10, '2024-06-01'),
+	(DEFAULT, 'Bola de Beisebol', 50, 10, '2024-06-01'),
+	(DEFAULT, 'Patinete', 250, 10, '2024-06-01');
